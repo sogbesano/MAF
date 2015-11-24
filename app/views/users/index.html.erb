@@ -4,8 +4,8 @@
     <table>
       <thead>
       <tr>
-        <th>First name</th>
         <th>Surname</th>
+        <th>First name</th>
         <th>Email</th>
         <th>Address</th>
         <th></th>
@@ -16,8 +16,8 @@
       <tbody>
       <% @users.each do |user| %>
           <tr>
-            <td><%= user.firstname %></td>
             <td><%= user.surname %></td>
+            <td><%= user.firstname %></td>
             <td><%= user.email %></td>
             <td><%= user.address %></td>
             <td><%# link_to(image_tag('eye.jpg', alt: 'Show',
