@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  shortdesc: MyString
+  longdesc: MyString
+  grapetype: MyString
+  forvegeterians: 
+  origin: MyString
+  bottlesize: MyString
+  price: 1.5
+  supplier: MyString
+
+two:
+  name: MyString
+  shortdesc: MyString
+  longdesc: MyString
+  grapetype: MyString
+  forvegeterians: 
+  origin: MyString
+  bottlesize: MyString
+  price: 1.5
+  supplier: MyString

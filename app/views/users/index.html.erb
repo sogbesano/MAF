@@ -4,9 +4,10 @@
     <table>
       <thead>
       <tr>
-        <th>Surname</th>
         <th>First name</th>
+        <th>Surname</th>
         <th>Email</th>
+        <th>Password</th>
         <th>Address</th>
         <th></th>
         <th></th>
@@ -16,9 +17,10 @@
       <tbody>
       <% @users.each do |user| %>
           <tr>
-            <td><%= user.surname %></td>
             <td><%= user.firstname %></td>
+            <td><%= user.surname %></td>
             <td><%= user.email %></td>
+            <td><%= user.password %></td>
             <td><%= user.address %></td>
             <td><%# link_to(image_tag('eye.jpg', alt: 'Show',
                                       title: 'Show details', border: '0'),
@@ -48,5 +50,6 @@
 </div>
 <br/>
 
-<%= link_to 'New user', new_user_path(page: @users.current_page) %>
+<%= link_to 'Sign up', new_user_path(page: @users.current_page) %>
+<%= link_to 'Login', new_user_path(page: 
 
