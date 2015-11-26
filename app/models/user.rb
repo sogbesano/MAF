@@ -17,6 +17,7 @@ class User < ActiveRecord::Base
   validates :email, :confirmation => true
   validates :email_confirmation, presence: true
 
+  has_secure_password  
 
   def firstname=(value)
     write_attribute :firstname, (value ? value.humanize : nil)
