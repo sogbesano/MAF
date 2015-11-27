@@ -24,6 +24,7 @@ Carl Jung wines contain around 20 calories per 100ml glass (many times less than
              origin: "South Africa",
              bottlesize: "75cl",
              price: 5.99,
-             supplier: "Carl Jung Winery")
+             supplier: "Carl Jung Winery",
+             photo: File.new("/home/olu/pictures/wine.jpg"))
              
               

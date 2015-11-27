@@ -11,6 +11,7 @@
         <th>Origin</th>
         <th>Bottle size</th>
         <th>Price</th>
+        <th>Photo</th>
       </tr>
       </thead>
       <tbody>
@@ -23,6 +24,7 @@
             <td><%= wine.origin %></td>
             <td><%= wine.bottlesize %></td>
             <td><%= wine.price %></td>
+            <td><%= image_tag(wine.photo, :size => "260x180") %></td>
           </tr>
       <% end %>
       </tbody>
