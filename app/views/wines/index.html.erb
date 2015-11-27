@@ -1,4 +1,12 @@
-  <h1>Alcohol free wines</h1>
+<h1>Alcohol free wines</h1>
+ 
+  <%= form_tag wines_path, :method => 'get' do %>
+  <p>
+  <%= text_field_tag :search, params[:search] %> 
+  <%= submit_tag "Search", :name => nil %> 
+  </p>
+
+<% end %>
 
 <% if @wines.length > 0 %>
     <table>

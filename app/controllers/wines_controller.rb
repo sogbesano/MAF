@@ -1,7 +1,6 @@
 class WinesController < ApplicationController
   def index
-    @wines = Wine.paginate(page: params[:page],
-			   per_page: params[:per_page]).order('name')
+     @wines = Wine.search(params[:search]).paginate(:page => params[:page])   
   end
 
   def show
