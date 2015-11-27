@@ -1,0 +1,40 @@
+  <h1>Alcohol free wines</h1>
+
+<% if @wines.length > 0 %>
+    <table>
+      <thead>
+      <tr>
+        <th>Name</th>
+        <th>Short description</th>
+        <th>Grape type</th>
+        <th>Suitable for vegeterians</th>
+        <th>Origin</th>
+        <th>Bottle size</th>
+        <th>Price</th>
+      </tr>
+      </thead>
+      <tbody>
+      <% @wines.each do |wine| %>
+          <tr>
+            <td><%= wine.name %></td>
+            <td><%= wine.shortdesc %></td>
+            <td><%= wine.grapetype %></td>
+            <td><%= wine.forvegeterians %></td>
+            <td><%= wine.origin %></td>
+            <td><%= wine.bottlesize %></td>
+            <td><%= wine.price %></td>
+          </tr>
+      <% end %>
+      </tbody>
+    </table>
+<% end %>
+<br/>
+<div class="digg_pagination">
+  <div>
+    <%= page_entries_info @wines %>
+  </div>
+  <%= will_paginate @wines, container: false %>
+</div>
+<br/>
+
+<%= link_to 'Add alcohol free wine', new_wine_path(page: @wines.current_page) %>

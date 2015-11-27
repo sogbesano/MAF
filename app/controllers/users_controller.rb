@@ -29,7 +29,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     respond_to do |format|
-    if @user.save#attemps to save user
+    if @user.save#try to save user
         format.html { redirect_to(user_url(@user, page: @current_page),
                                   notice: 'Account was successfully created.') }
         format.json { render action: 'show', status: :created, location: @user }

@@ -1,4 +1,18 @@
 Rails.application.routes.draw do
+  get 'wines/index'
+
+  get 'wines/show'
+
+  get 'wines/new'
+
+  get 'wines/edit'
+
+  get 'wines/create'
+
+  get 'wines/update'
+
+  get 'wines/destroy'
+
   get 'static_pages/home'
 
   get 'static_pages/help'
@@ -8,6 +22,7 @@ Rails.application.routes.draw do
   get 'sessions/new'
 
   resources :users
+  resources :wines
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
