@@ -33,6 +33,10 @@
             <td><%= wine.bottlesize %></td>
             <td><%= wine.price %></td>
             <td><%= image_tag(wine.photo, :size => "260x180") %></td>
+            <div class="price_line">
+              <span class="price"><%= number_to_currency(wine.price) %></span>
+              <%= link_to 'Add to Cart', line_items_path(wine_id: wine), method: :post %>
+            </div>
           </tr>
       <% end %>
       </tbody>
