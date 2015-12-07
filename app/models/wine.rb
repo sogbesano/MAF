@@ -5,14 +5,10 @@ class Wine < ActiveRecord::Base
   
   before_destroy :ensure_not_referenced_by_any_line_item
 
-  belongs_to :user
-  
   has_attached_file :photo, styles: { large: "600x600>", medium: "300x300>", thumb: "150x150#" }
   validates_attachment_content_type :photo,
                                       content_type: /\Aimage\/.*\Z/
 
-  #attr_reader :name
- 
   def self.search(search)
     if search
         self.where("name like ?", "%#{search}%")

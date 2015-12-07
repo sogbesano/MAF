@@ -24,12 +24,13 @@ class LineItemsController < ApplicationController
   # POST /line_items
   # POST /line_items.json
   def create
-    puts "Arrived in Line Item Controller: Create method."
-    puts "Wine ID: " + params[:wine_id].to_s
     @cart = current_cart
     wine = Wine.find(params[:wine_id])
+    puts 'Wine: ' + wine.to_s
     @line_item = @cart.line_items.build(wine_id: wine)
-
+    wine.save
+    @cart.save
+    puts('Cart is' + @cart.to_s)
     respond_to do |format|
       if @line_item.save
         format.html { redirect_to @line_item.cart, notice: 'Line item was successfully created.' }

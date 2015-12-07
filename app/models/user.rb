@@ -1,6 +1,4 @@
 class User < ActiveRecord::Base
-  has_many :wines
-
   validates_presence_of :firstname, :surname, :email, :password, :address
 
   validates_uniqueness_of :email

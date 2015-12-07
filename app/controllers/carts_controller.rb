@@ -10,6 +10,12 @@ class CartsController < ApplicationController
   # GET /carts/1
   # GET /carts/1.json
   def show
+   @cart = Cart.find(params[:id])
+   puts "This is the cart " + @cart.to_s
+   puts "The line items " + @cart.line_items.to_s
+   @cart.line_items.each do |item|
+     puts "The wine " + item.wine.to_s
+   end
   end
 
   # GET /carts/new
@@ -25,7 +31,6 @@ class CartsController < ApplicationController
   # POST /carts.json
   def create
     @cart = Cart.new(cart_params)
-
     respond_to do |format|
       if @cart.save
         format.html { redirect_to @cart, notice: 'Cart was successfully created.' }

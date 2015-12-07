@@ -6,6 +6,36 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+require 'httparty'
+require 'json'
+wine_services = Array[
+  'http://localhost:5000/supplier.redberry/api/wines',
+  'http://localhost:5001/supplier.blueberry/api/wines'
+]
+
+wine_services.each { |url| 
+  response = HTTParty.get(url);
+  wines_data = JSON.parse(response.body)
+  i = 0
+  wines_data.each do |wine_data|
+    #wine = Wine.create!(wine_data[1])
+    wine_data[1].length.times do
+    puts "BULLSHIT " + wine_data[1][i].to_s
+    Wine.create!(name: wine_data[1][i]["name"],
+                 shortdesc: wine_data[1][i]["shortdesc"],
+                 longdesc: wine_data[1][i]["longdesc"],
+                 grapetype: wine_data[1][i]["grapetype"],
+                 forvegeterians: wine_data[1][i]["forvegeterians"],
+                 origin: wine_data[1][i]["origin"],
+                 bottlesize: wine_data[1][i]["bottlesize"],
+                 price: wine_data[1][i]["price"],
+                 supplier: wine_data[1][i]["supplier"],
+                 photo: File.new(wine_data[1][i]["photo"]))
+    i = i + 1
+    end
+  end 
+}
+
 User.create!(firstname: "jessie", 
 	    surname: "jones", 
 	    email: "jj@bing.bong", 
@@ -14,17 +44,4 @@ User.create!(firstname: "jessie",
             password_confirmation: "123456",
 	    address: "london")  
 
-Wine.create!(name: "Carl Jung",
-             shortdesc: "Carl Jung Cabernet Sauvignon is a fruity and refreshing red wine with a hint of vanilla and blackcurrant",
-             longdesc: "It has firm tannins and a marked acidity making it a wine best enjoyed with red meat dishes. It will pair particularly well with barbecued dishes and roast lamb. It rolls lightly on the tongue with a pleasant aftertaste.
-
-Carl Jung wines contain around 20 calories per 100ml glass (many times less than traditional wine) and 0.2% alcohol by volume.",
-             grapetype: "Merlot",
-             forvegeterians: true,
-             origin: "South Africa",
-             bottlesize: "75cl",
-             price: 5.99,
-             supplier: "Carl Jung Winery",
-             photo: File.new("/home/olu/pictures/wine.jpg"))
-             
               
